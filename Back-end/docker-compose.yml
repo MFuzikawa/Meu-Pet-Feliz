@@ -1,23 +1,16 @@
 version: '3.8'
 
 services:
-
   app:
-
-    build:
-
-      context: .
-      dockerfile: Dockerfile
-
+    container_name: meu-pet-feliz
+    build: .
     ports:
       - "3000:3000"
-
     env_file:
-      .env
-    
-    networks: 
+      - .env
+    networks:
       - app-network
 
-  networks:
+networks:
   app-network:
     driver: bridge
